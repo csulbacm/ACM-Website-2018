@@ -1,9 +1,25 @@
-import React from 'react'
+import React, {Component} from 'react'
+import ScheduleDisplay from './ScheduleDisplay.js'
 
-const HomePage = () => (
+const style = {
+  headerImage: {
+    width: "fill",
+    height: "400px",
+    backgroundColor: "#dddddd"
+  }
+}
+
+class HomePage extends Component {
+  render() {
+    return (
     <div>
-      This is the Home page
+      <div style={style.headerImage}>
+        Picture Here
+      </div>
+      <ScheduleDisplay/>
     </div>
-)
+    );
+  }
+}
 
 export default HomePage

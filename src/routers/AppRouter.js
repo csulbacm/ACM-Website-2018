@@ -19,8 +19,7 @@ const theme = createMuiTheme({
       main: '#ffffff'
     },
     typography: {
-      fontSize: 16,
-      htmlFontSize: 16
+      fontSize: 14
     }
   }
 });
