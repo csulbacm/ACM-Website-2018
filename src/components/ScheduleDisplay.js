@@ -8,21 +8,6 @@ import WeekCard from './WeekCard.js'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 
-// const a = [
-//     {
-//       eventId: 0,
-//       color: "#f4a142",
-//       date: '2018-9-28',
-//       title: "test"
-//     },
-//     {
-//       eventId: 1,
-//       color: "#f4418f",
-//       date: '2018-9-29',
-//       title: "test2"
-//     }
-//   ]
-
 const ScheduleDisplay = (props) => {
         return (
           <div>
@@ -32,7 +17,6 @@ const ScheduleDisplay = (props) => {
                     {props.scheduleCards.map(card => (
                       <WeekCard key={card.id} color={card.color} date={card.date} title={card.title}></WeekCard>
                     ))}
-                    <WeekCard color="#dddddd" date="9/30/2018" title="test3"></WeekCard>
 
                     <ScheduleCardForm
                       onSubmit={(scheduleCard) => {
