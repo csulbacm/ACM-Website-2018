@@ -16,7 +16,7 @@ const styles = {
     }
 }
 
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 
+const months = ['Jan', 'Feb', 'Mar', 'Apr',
     'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 class DateCard extends Component {
