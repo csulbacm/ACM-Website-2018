@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 const Header = () => (
   <header>
 
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Toolbar>
       <NavLink to="/" style={{textDecoration: 'none', fontSize: '14'}}><Button color="secondary" style={{fontSize: '12px'}}>Home</Button></NavLink>
       <NavLink to="/bulletin" style={{textDecoration: 'none'}}><Button color="secondary" style={{fontSize: '12px'}}>Bulletin</Button></NavLink>

@@ -19,7 +19,11 @@ const theme = createMuiTheme({
       main: '#ffffff'
     },
     typography: {
-      fontSize: 14
+      fontSize: 14,
+      htmlFontSize: 14,
+      fontFamily: [
+        'Roboto'
+      ].join(',')
     }
   }
 });

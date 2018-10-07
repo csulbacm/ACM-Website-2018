@@ -1,0 +1,9 @@
+.headParallax {
+    background-image: url("http://archmillhouse.com/wp-content/uploads/Header-Background.png");
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    height: 80vh;
+}

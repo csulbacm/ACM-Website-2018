@@ -1,3 +1,4 @@
 # Don't track these folders/files
 
 node_modules/
+package-lock.json
