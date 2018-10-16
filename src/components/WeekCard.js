@@ -8,16 +8,24 @@ class WeekCard extends Component {
         super(props);
     }
 
+    getMinutes(date) {
+        if(date.getMinutes()/10 == 0) {
+            return date.getMinutes() + "0";
+        }
+        return date.getMinutes()
+    }
+
     render() {
         var color = this.props.color;
         var date = new Date(this.props.date);
         var title = this.props.title;
         return(
-            <Paper style={{backgroundColor: color}} className="Card" elevation={1}>
+            <Paper style={{backgroundColor: color, height: '150px', width: '250px'}} className="Card" elevation={1}>
                 <div className="Date">
                     <DateCard className="Date" month={date.getMonth()} day={date.getDate()}/>
                 </div>
                 <h3 className="Title">{title}</h3>
+                <p className="Time">{date.getHours()%12}:{this.getMinutes(date)}</p>
             </Paper>
         );
     }

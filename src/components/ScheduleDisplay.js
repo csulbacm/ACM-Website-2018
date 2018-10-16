@@ -10,22 +10,23 @@ import Paper from '@material-ui/core/Paper'
 
 const ScheduleDisplay = (props) => {
         return (
-          <div>
-            <Paper style={{width: '95%', marginLeft: 'auto', marginRight: 'auto', marginTop: '15px', marginBottom: '15px', padding: '10px'}} elevation={2}>
-                <h2 style={{margin: '2px'}}>Events This Week</h2>
-                <Grid container direction="row" justify="flex-start" alignItems="stretch">
-                    {props.scheduleCards.map(card => (
-                      <WeekCard key={card.id} color={card.color} date={card.date} title={card.title}></WeekCard>
-                    ))}
-
-                    <ScheduleCardForm
+            <Paper style={{ marginLeft: 'auto', marginTop: '15px', marginBottom: '25px', height: '100%'}} elevation={2}>
+                <h2 style={{textAlign: 'center'}}>Events This Week</h2>
+                <Grid container direction="column" justify="flex-start" alignItems="center">
+                    
+                      {props.scheduleCards.map(card => (
+                        <Grid item key={card.id}>
+                        <WeekCard key={card.id} color={card.color} date={card.date} title={card.title}></WeekCard>
+                        </Grid>
+                      ))}
+                    
+                    {/* <ScheduleCardForm
                       onSubmit={(scheduleCard) => {
                         props.dispatch(startAddScheduleCard(scheduleCard))
                       }}
-                    />
+                    /> */}
                 </Grid>
             </Paper>
-          </div>
         )
     }
 
