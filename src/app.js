@@ -17,6 +17,7 @@ import AppRouter from './routers/AppRouter.js'
 import configureStore from './store/configureStore'
 // Fetches Firebase data for inital store state
 import { startSetScheduleCards } from './actions/scheduleCards'
+import { startSetBlogPosts } from './actions/blogPosts'
 
 import 'normalize.css/normalize.css'
 import './styles/styles.scss'
@@ -30,7 +31,10 @@ const jsx = (
 
 ReactDOM.render(<p>Loading...</p>, document.getElementById('app'))
 
-store.dispatch(startSetScheduleCards())
+Promise.all([
+  store.dispatch(startSetScheduleCards()),
+  store.dispatch(startSetBlogPosts())
+])
   .then(() => {
     console.log(store.getState());
     ReactDOM.render(jsx, document.getElementById('app'))
