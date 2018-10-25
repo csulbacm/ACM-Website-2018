@@ -1,7 +1,7 @@
 import moment from 'moment'
 
-export default (scheduleCards) => {
-  let schedule = scheduleCards
+export default (state) => {
+  let schedule = state.scheduleCards
                   .filter((card) =>  
                     moment(card.date) >= moment() && card.date != undefined
                   )
