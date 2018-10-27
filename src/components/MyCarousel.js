@@ -39,7 +39,7 @@ class MyCarousel extends React.Component {
           this.images &&
           this.images.map((image, index) => (
             <Carousel.Item key={index}>
-              <img style={{width: '100vw', height: '50vh', objectFit: 'cover'}} src={image} alt={`slide${index}`}/>
+              <img style={{width: '100vw', height: '95vh', objectFit: 'cover'}} src={image} alt={`slide${index}`}/>
             </Carousel.Item>
           )
         )}

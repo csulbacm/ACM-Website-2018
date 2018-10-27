@@ -12,11 +12,11 @@ const ScheduleDisplay = (props) => {
         return (
             <Paper style={{ marginLeft: 'auto', marginTop: '15px', marginBottom: '25px', height: '100%'}} elevation={2}>
                 <h2 style={{textAlign: 'center'}}>Events This Week</h2>
-                <Grid container direction="column" justify="flex-start" alignItems="center">
+                <Grid container direction="row" justify="flex-start" alignItems="center">
                     
                       {props.scheduleCards.map(card => (
                         <Grid item key={card.id}>
-                        <WeekCard key={card.id} color={card.color} date={card.date} title={card.title}></WeekCard>
+                          <WeekCard key={card.id} color={card.color} date={card.date} title={card.title}></WeekCard>
                         </Grid>
                       ))}
                     

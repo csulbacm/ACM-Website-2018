@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom'
 import { render } from 'react-dom';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 
 import Header from '../components/Header.js'
@@ -10,7 +10,11 @@ import BulletinPage from '../components/BulletinPage.js'
 import BoardPage from '../components/BoardPage.js'
 import NotFoundPage from '../components/NotFoundPage.js'
 
-const theme = createMuiTheme({
+const styles = (theme) => ({
+  toolbar: theme.mixins.toolbar,
+});
+
+const muiTheme = createMuiTheme({
   palette: {
     primary: {
       main: blue[500]
@@ -28,20 +32,25 @@ const theme = createMuiTheme({
   }
 });
 
-const AppRouter = () => (
-  <MuiThemeProvider theme={theme}>
-    <BrowserRouter>
-      <div>
-        <Header/>
-        <Switch>
-          <Route path="/" component={HomePage} exact={true}/>
-          <Route path="/bulletin" component={BulletinPage} exact={true}/>
-          <Route path="/board" component={BoardPage} exact={true}/>
-          <Route component={NotFoundPage}/>
-        </Switch>
-      </div>
-    </BrowserRouter>
-  </MuiThemeProvider>
-)
+const AppRouter = (props) => {
+  const { classes } = props;
 
-export default AppRouter
+  return (
+    <MuiThemeProvider theme={muiTheme}>
+      <BrowserRouter>
+        <div>
+          <Header/>
+          <div className={classes.toolbar} />
+          <Switch>
+            <Route path="/" component={HomePage} exact={true}/>
+            <Route path="/bulletin" component={BulletinPage} exact={true}/>
+            <Route path="/board" component={BoardPage} exact={true}/>
+            <Route component={NotFoundPage}/>
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </MuiThemeProvider>
+  )
+}
+
+export default withStyles(styles)(AppRouter);
