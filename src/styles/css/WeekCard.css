@@ -9,13 +9,13 @@
 
 .Date {
     position: absolute;
-    top: 0; bottom: 0; left: 0; right: 0; 
+    top: 0; left: 0;
     padding: 10px;
 }
 
 .Title {
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     left: 0;
     text-align: center;
     padding: 10px;

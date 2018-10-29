@@ -23,6 +23,7 @@ const muiTheme = createMuiTheme({
       main: '#ffffff'
     },
     typography: {
+      useNextVariants: true,
       fontSize: 14,
       htmlFontSize: 14,
       fontFamily: [

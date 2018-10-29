@@ -3,6 +3,7 @@ import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
+import '../styles/css/WeekCard.css'
 
 const styles = {
     month : {
@@ -29,13 +30,11 @@ class DateCard extends Component {
         var day = this.props.day;
 
         return (
-        <Card style={{display: 'inline-block'}}>
-            <CardContent style={{padding: '12px'}}>
+            <div className="Date" style={{display: 'inline-block', padding: '12px'}}>
                 <Typography style={styles.month}>{months[month]}</Typography>
                 <Divider/>
                 <Typography style={styles.day} variant="headline" component="h3">{day}</Typography>
-            </CardContent>
-        </Card>
+            </div>
         );
     }
 }
