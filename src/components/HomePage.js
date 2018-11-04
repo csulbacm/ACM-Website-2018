@@ -26,10 +26,10 @@ class HomePage extends Component {
     return (
     <div>
       <div>
-        
+
         <Parallax style={{background: "linear-gradient(to bottom, #2196f3, #00a5f7, #00b4f8, #00c1f7, #30cef4)"}} ref='parallax' pages={3}>
           <Particles params={particleParams} style={{position: "absolute", display: "inline-block"}} />
-      
+
           <Parallax.Layer offset={0} speed={1} />
           <Parallax.Layer offset={1} speed={1} />
           <Parallax.Layer offset={2} speed={1} />
@@ -75,7 +75,7 @@ class HomePage extends Component {
                 <ScheduleDisplay/>
               </div>
             </div>
-            
+
           </Parallax.Layer>
 
         </Parallax>

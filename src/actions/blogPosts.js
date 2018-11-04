@@ -1,10 +1,10 @@
 import database from '../firebase/firebase'
 import moment from 'moment'
 
-const dbRef = database.ref('blogPosts')
+const dbRef = database.ref('data/blogPosts')
 
 const addBlogPost = (blogPost) => ({
-  type: 'ADDD_BLOG_POST',
+  type: 'ADD_BLOG_POST',
   blogPost
 })
 export const startAddBlogPost = (data = {}) => {
@@ -69,6 +69,9 @@ export const startSetBlogPosts = () => {
           })
         })
         dispatch(setBlogPosts(blogPosts))
+      })
+      .catch((e) => {
+        console.log('Error: ', e);
       })
   }
 }

@@ -2,6 +2,8 @@ import database from '../firebase/firebase'
 import axios from 'axios'
 import moment from 'moment'
 
+const dbRef = database.ref('data/scheduleCards')
+
 const addScheduleCard = (scheduleCard) => ({
   type: 'ADD_SCHEDULE_CARD',
   scheduleCard
@@ -16,7 +18,7 @@ export const startAddScheduleCard = (data = {}) => {
     } = data
     const scheduleCard = { date, title, color }
 
-    database.ref('scheduleCards').push(scheduleCard)
+    dbRef.push(scheduleCard)
       .then((ref) => {
         dispatch(addScheduleCard({
           id: ref.key,

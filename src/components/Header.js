@@ -1,17 +1,34 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
+import { startLogout } from '../actions/auth'
 
-const Header = () => (
+const buttonStyle = {fontSize: '12px'}
+const navLinkStyle =  {textDecoration: 'none', fontSize: '14'}
+const lastNavLink = {flexGrow: 1}
+
+const Header = (props) => (
+
   <header>
-
-    <AppBar position="fixed">
+    <AppBar position="fixed" style={{overflow:'hidden'}}>
       <Toolbar>
-      <NavLink to="/" style={{textDecoration: 'none', fontSize: '14'}}><Button color="secondary" style={{fontSize: '12px'}}>Home</Button></NavLink>
-      <NavLink to="/bulletin" style={{textDecoration: 'none'}}><Button color="secondary" style={{fontSize: '12px'}}>Bulletin</Button></NavLink>
-      <NavLink to="/board" style={{textDecoration: 'none'}}><Button color="secondary" style={{fontSize: '12px'}}>Board</Button></NavLink>
+      <NavLink to="/" style={navLinkStyle}><Button color="secondary" style={buttonStyle}>Home</Button></NavLink>
+      <NavLink to="/bulletin" style={navLinkStyle}><Button color="secondary" style={buttonStyle}>Bulletin</Button></NavLink>
+      <NavLink to="/board" style={navLinkStyle, lastNavLink}><Button color="secondary" style={buttonStyle}>Board</Button></NavLink>
+      {
+        props.isAuthenticated &&
+        <Button
+          style={buttonStyle}
+          onClick={() => {
+            props.startLogout()
+          }}
+        >
+          Logout
+        </Button>
+      }
       </Toolbar>
     </AppBar>
 
@@ -21,4 +38,15 @@ const Header = () => (
   </header>
 )
 
-export default Header
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: !!state.auth.uid
+  }
+}
+const mapDispatchToProps = (dispatch) => ({
+  startLogout: () => {
+    dispatch(startLogout())
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
