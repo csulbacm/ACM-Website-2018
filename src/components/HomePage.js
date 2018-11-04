@@ -12,7 +12,7 @@ import Parallax from 'react-springy-parallax'
 const particleParams = {
   particles: {
     number: {
-      value: 25,
+      value: 15,
       density: {
         enable: true,
         value_area: 800

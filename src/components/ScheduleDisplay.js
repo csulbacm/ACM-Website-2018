@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper'
 
 const ScheduleDisplay = (props) => {
         return (
-            <div style={{ marginLeft: 'auto', marginTop: '15px', marginBottom: '25px', height: '100%'}}>
+            <div style={{ marginLeft: 'auto', marginTop: '15px', marginBottom: '25px', height: '100%', color: 'white'}}>
                 <h2 style={{textAlign: 'center'}}>Events This Week</h2>
                 <Grid container direction="row" justify="space-evenly" alignItems="stretch">
                     

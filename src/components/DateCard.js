@@ -30,10 +30,10 @@ class DateCard extends Component {
         var day = this.props.day;
 
         return (
-            <div className="Date" style={{display: 'inline-block', padding: '12px'}}>
-                <Typography style={styles.month}>{months[month]}</Typography>
+            <div className="Date" style={{display: 'inline-block', padding: '12px', color: 'white'}}>
+                <p style={styles.month}>{months[month]}</p>
                 <Divider/>
-                <Typography style={styles.day} variant="headline" component="h3">{day}</Typography>
+                <p style={styles.day} variant="headline" component="h3">{day}</p>
             </div>
         );
     }
