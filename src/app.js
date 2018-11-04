@@ -18,6 +18,9 @@ import configureStore from './store/configureStore'
 // Fetches Firebase data for inital store state
 import { startSetScheduleCards } from './actions/scheduleCards'
 import { startSetBlogPosts } from './actions/blogPosts'
+import { verifyAndLogin } from './actions/auth'
+
+import database, { firebase } from './firebase/firebase'
 
 import 'normalize.css/normalize.css'
 import './styles/styles.scss'
@@ -39,3 +42,14 @@ Promise.all([
     console.log(store.getState());
     ReactDOM.render(jsx, document.getElementById('app'))
   })
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in.
+      console.log('Signed in', user);
+      store.dispatch(verifyAndLogin(user))
+    } else {
+      // No user is signed in
+      console.log('Signed out');
+    }
+  });
