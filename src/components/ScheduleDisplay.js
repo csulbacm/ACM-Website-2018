@@ -10,9 +10,9 @@ import Paper from '@material-ui/core/Paper'
 
 const ScheduleDisplay = (props) => {
         return (
-            <Paper style={{ marginLeft: 'auto', marginTop: '15px', marginBottom: '25px', height: '100%'}} elevation={2}>
+            <div style={{ marginLeft: 'auto', marginTop: '15px', marginBottom: '25px', height: '100%'}}>
                 <h2 style={{textAlign: 'center'}}>Events This Week</h2>
-                <Grid container direction="row" justify="flex-start" alignItems="center">
+                <Grid container direction="row" justify="space-evenly" alignItems="stretch">
                     
                       {props.scheduleCards.map(card => (
                         <Grid item key={card.id}>
@@ -26,7 +26,7 @@ const ScheduleDisplay = (props) => {
                       }}
                     /> */}
                 </Grid>
-            </Paper>
+            </div>
         )
     }
 

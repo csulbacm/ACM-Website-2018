@@ -12,7 +12,7 @@ import Parallax from 'react-springy-parallax'
 const particleParams = {
   particles: {
     number: {
-      value: 20,
+      value: 25,
       density: {
         enable: true,
         value_area: 800
@@ -44,18 +44,24 @@ class HomePage extends Component {
           <Parallax.Layer
             offset={1}
             speed={1}>
-            <div style={{textAlign: 'center'}}>
+            <div style={{textAlign: 'center', paddingBottom: '50px', color: 'white'}}>
               <div style={{display: 'inline-block'}}>
-                <h1 style={{textAlign: 'center'}}>What is ACM</h1>
-                <p style={{width: '80%', textAlign: 'justify', marginLeft: 'auto', marginRight: 'auto', lineHeight: '1.5', fontSize: '20px'}}>
-                    Lorem ipsum dolor sit amet, has mutat illud quaerendum te. Enim veri latine nam at, simul tation sea ei, autem saepe ornatus an est. Ex mea odio pericula. Eu nec scaevola facilisis.
-                    Duo in elit tation ocurreret, omnis denique erroribus mel ne, ius lobortis splendide in. Pri an amet dicam oratio, mea ad quidam inermis. Illud utroque salutatus at mel, ex has solet singulis. Paulo evertitur ea mel, has eu omnes iudico. Eu est hinc fuisset lucilius, per malorum feugiat praesent ex, facer dolorum ceteros ius te.
-                    Per possim nominavi ea. An vis dicam veritus. His alii percipitur id. Debitis placerat reprimique usu ex, est graece saperet dolorum ut. Ne nonumy copiosae luptatum usu, ei per idque fugit intellegam, accusam epicurei est an. Tale audiam contentiones vim et, no pro magna ubique.
-                    Cum eu praesent laboramus, alienum epicuri nominavi ius no, unum explicari an vim. Cu timeam mediocritatem qui, nam melius expetenda ea. Aliquip molestiae disputando mel eu. Sit at prima modus, dicant inimicus intellegebat sit ne. Brute torquatos vel id, an vix tale referrentur.
-                    Sint tation explicari ei his, erat noluisse disputando pro ad. Eam te scaevola torquatos, eos nemore integre gubergren id. Pro et omnium consequat quaerendum, movet sensibus democritum te eos. His ne liber petentium, ius ut stet fastidii senserit, animal dissentias vim no. At per fastidii imperdiet. Agam aperiam eripuit his in, no iriure labitur lucilius pri.
-                    Debitis pertinax et usu, id mel erant delenit iudicabit, est legere feugait theophrastus at. No cum vide graecis. Labore principes ne usu, percipitur contentiones mei eu, aeterno principes evertitur mei et. Offendit indoctum no pri, illud iriure lucilius has no, nec saepe laoreet sensibus at. Justo utinam regione in eos.
-                    Convenire mediocrem pri ut. Mel malis appareat an, omittam contentiones ei eos, vix ut stet dolorum consulatu. Sit harum nostrud aliquando no, in congue accumsan pri. Et melius numquam forensibus per, accusam elaboraret sed id.
-                    No dicta praesent intellegam vix, ei dolor nemore appetere sed. Per legimus expetenda eu. Et clita facete delenit nam, luptatum necessitatibus pri in. Ad cetero accumsan phaedrum sit. Eu nec ipsum epicurei, ad liber gloriatur vis. Omnesque senserit pro ea, mel homero legere appareat cu. Eos ut dolorum indoctum, pri cu constituam comprehensam.
+                <h1 style={{textAlign: 'center', fontSize: '48px'}}>What is ACM</h1>
+                <p style={{width: '80%', textAlign: 'justify', marginLeft: 'auto', marginRight: 'auto', lineHeight: '1.2', fontSize: '20px'}}>
+                  ACM is the Association for Computing Machinery. With ACM at the Beach we are determined to advance the science and application 
+                  of information technology by providing students with real world information through guest speakers, workshops, seminars, projects,
+                  and other activities. Information about job trends, internships, and scholarships is always updated to help students take a stand in their future career.
+                </p>
+                <p style={{width: '80%', textAlign: 'justify', marginLeft: 'auto', marginRight: 'auto', lineHeight: '1.2', fontSize: '20px'}}>
+                  We also work to strengthen the bond between the students, the faculty, and the Computer Engineering and Computer Science (CECS) 
+                  department. A stronger, tighter relationship students and their instructors engenders a friendly, energetic, close-knit and secure 
+                  learning atmosphere. Moreover, we provide services back to the community by tutoring, volunteering, and spreading our knowledge about 
+                  the information technology to others.
+                </p>
+                <p style={{width: '80%', textAlign: 'justify', marginLeft: 'auto', marginRight: 'auto', lineHeight: '1.2', fontSize: '20px'}}>
+                The Association for Computing Machinery is an active branch of the globe's largest computer science society. Here at the Long 
+                Beach chapter, we believe in the principles of Gladwell's book, Outliers: The Story of Success. We commit our time and energy 
+                to producing, engaging in, and ultimately mastering the technologies of the computing age.
                 </p>
               </div>
             </div>
@@ -64,7 +70,7 @@ class HomePage extends Component {
           <Parallax.Layer
             offset={2}
             speed={1}>
-            <div style={{width: '80%', textAlign: 'center'}}>
+            <div style={{width: '80%', textAlign: 'center'}} className="center">
               <div style={{display: 'inline-block'}}>
                 <ScheduleDisplay/>
               </div>

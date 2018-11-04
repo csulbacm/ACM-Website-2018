@@ -9,7 +9,7 @@
 }
 
 .circleButton {
-    background-color: rgb(133, 212, 248);
+    background-color: rgb(240, 237, 228);
     border: none;
     color: rgb(100, 45, 45);
     padding: 5px;
@@ -18,9 +18,12 @@
     opacity: 0.5;
 }
 
-button:focus {outline:0;}
+.circleButton:focus {
+    outline: 0;
+    opacity: 1;
+}
 
-.gradient {
-    padding-top: 5px;
-    background-image: linear-gradient(#2196f3 65%, #ffffff 100%);
+.center {
+    margin: auto;
+    padding-top: 25vh;
 }
