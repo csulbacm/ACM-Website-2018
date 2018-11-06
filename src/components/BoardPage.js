@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import BlogPost from './BlogPost'
 import BlogPostForm from './BlogPostForm'
 import { startAddBlogPost, startSetBlogPosts } from '../actions/blogPosts'
 import moment from 'moment'
@@ -7,6 +8,7 @@ import Markdown from 'markdown-to-jsx'
 import Particles from 'react-particles-js';
 
 const style = {display: 'inline-block', color: 'Blue'}
+import { startAddBlogPost, startUpdateBlogPost, startRemoveBlogPost } from '../actions/blogPosts'
 
 const particleParams = {
   particles: {
@@ -29,12 +31,12 @@ const BoardPage = (props) => (
           <BlogPostForm
           onSubmit={(blogPost) => {
             props.dispatch(startAddBlogPost(blogPost))
-            // props.dispatch(startSetBlogPosts())
           }}/>
       }
       {
         props.blogPosts &&
           props.blogPosts.map((post) =>
+<<<<<<< HEAD
             <div key={post.id}>
                 <h3 style={style}>{moment(post.date).format('MMM Do')}</h3>
                 <h2
@@ -49,16 +51,27 @@ const BoardPage = (props) => (
                   suppressContentEditableWarning="true"
                 >{post.body}</Markdown>
             </div>
+=======
+            <BlogPost
+              key={post.id}
+              post={post}
+              isAuthenticated={props.isAuthenticated}
+              onSubmit={({ id, ...updates } = {}) => {
+                props.dispatch(startUpdateBlogPost(id, updates))
+              }}
+              onDelete={(id) => {
+                props.dispatch(startRemoveBlogPost(id))
+              }}
+            />
+>>>>>>> e6fa85f423b00939b4e67ce1d854563d1a9c4de9
           )
       }
     </div>
 )
 
-const mapStateToProps = (state) => {
-  return {
-    blogPosts: state.blogPosts,
-    isAuthenticated: !!state.auth.uid
-  }
-}
+const mapStateToProps = (state) => ({
+  blogPosts: state.blogPosts,
+  isAuthenticated: !!state.auth.uid
+})
 
 export default connect(mapStateToProps)(BoardPage)

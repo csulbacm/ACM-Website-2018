@@ -27,12 +27,12 @@ export const startAddBlogPost = (data = {}) => {
 }
 
 const removeBlogPost = (id) => ({
-  type: REMOVE_BLOG_POST,
+  type: 'REMOVE_BLOG_POST',
   id
 })
 export const startRemoveBlogPost = (id) => {
   return (dispatch) => {
-    dbRef.remove(id)
+    dbRef.child(id).remove()
       .then(() => {
         dispatch(removeBlogPost(id))
       })
