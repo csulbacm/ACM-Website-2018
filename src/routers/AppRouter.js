@@ -25,14 +25,6 @@ const muiTheme = createMuiTheme({
     },
     secondary: {
       main: '#ffffff'
-    },
-    typography: {
-      useNextVariants: true,
-      fontSize: 14,
-      htmlFontSize: 14,
-      fontFamily: [
-        'Roboto'
-      ].join(',')
     }
   }
 });

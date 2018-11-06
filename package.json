@@ -23,6 +23,7 @@
     "firebase": "5",
     "history": "4.7.2",
     "live-server": "^1.2.0",
+    "markdown-to-jsx": "^6.8.3",
     "moment": "2.18.1",
     "node-sass": "^4.9.2",
     "normalize.css": "7.0.0",

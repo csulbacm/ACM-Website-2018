@@ -1,5 +1,12 @@
 import React from 'react'
 import moment from 'moment'
+import TextField from '@material-ui/core/TextField'
+
+const styles= {
+  resize: {
+    fontSize: '20px'
+  }
+}
 
 export default class BlogPostForm extends React.Component {
   constructor(props) {
@@ -44,20 +51,41 @@ export default class BlogPostForm extends React.Component {
         {this.state.error && <p>{this.state.error}</p>}
 
         <form onSubmit={this.onSubmit}>
-          <input
+          {/* <input
           type="text"
           placeholder="Title"
           autoFocus
           value={this.state.title}
           onChange={this.onTitleChange}
+          /> */}
+          <TextField
+            id="title"
+            label="Title"
+            style={{margin: 8}}
+            value={this.state.title}
+            onChange={this.onTitleChange}
+            margin="normal"
+            variant="outlined"
           />
-          <input
+          <TextField
+            id="body"
+            style={{margin: 8}}
+            label="Body"
+            value={this.state.body}
+            onChange={this.onBodyChange}
+            multiline
+            rows="4"
+            fullWidth
+            margin="normal"
+            variant="outlined"
+          />
+          {/* <input
           type="text"
           placeholder="Body"
           autoFocus
           value={this.state.body}
           onChange={this.onBodyChange}
-          />
+          /> */}
 
           <input type="submit"/>
         </form>

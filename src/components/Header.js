@@ -8,7 +8,7 @@ import { startLogout } from '../actions/auth'
 
 const buttonStyle = {fontSize: '12px'}
 const navLinkStyle =  {textDecoration: 'none', fontSize: '14'}
-const lastNavLink = {flexGrow: 1}
+const lastNavLink = {textDecoration: 'none', fontSize: '14', flexGrow: 1}
 
 const Header = (props) => (
 
@@ -17,11 +17,12 @@ const Header = (props) => (
       <Toolbar>
       <NavLink to="/" style={navLinkStyle}><Button color="secondary" style={buttonStyle}>Home</Button></NavLink>
       <NavLink to="/bulletin" style={navLinkStyle}><Button color="secondary" style={buttonStyle}>Bulletin</Button></NavLink>
-      <NavLink to="/board" style={navLinkStyle, lastNavLink}><Button color="secondary" style={buttonStyle}>Board</Button></NavLink>
+      <NavLink to="/board" style={lastNavLink}><Button color="secondary" style={buttonStyle}>Board</Button></NavLink>
       {
         props.isAuthenticated &&
         <Button
           style={buttonStyle}
+          color="secondary"
           onClick={() => {
             props.startLogout()
           }}
