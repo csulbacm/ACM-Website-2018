@@ -15,7 +15,7 @@ const particleParams = {
 }
 
 const BulletinPage = () => (
-    <div style={{background: "linear-gradient(to bottom, #2196f3, #00a5f7, #00b4f8, #00c1f7, #30cef4)", height: "100vh"}}>
+    <div style={{background: "linear-gradient(to bottom, #2196f3, #00a5f7, #00b4f8, #00c1f7, #30cef4)", height: "100vh", padding: "10px"}}>
       <Particles params={particleParams} style={{position: "absolute", display: "inline-block"}} />
 
       <Grid container direction="row" justify="space-evenly" alignItems="center">

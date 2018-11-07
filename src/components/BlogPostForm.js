@@ -61,7 +61,7 @@ export default class BlogPostForm extends React.Component {
           <TextField
             id="title"
             label="Title"
-            style={{margin: 8}}
+            style={{margin: 8, width: "50vw"}}
             value={this.state.title}
             onChange={this.onTitleChange}
             margin="normal"
@@ -69,12 +69,12 @@ export default class BlogPostForm extends React.Component {
           />
           <TextField
             id="body"
-            style={{margin: 8}}
+            style={{margin: 8, width: "60vw"}}
             label="Body"
             value={this.state.body}
             onChange={this.onBodyChange}
             multiline
-            rows="4"
+            rows="6"
             fullWidth
             margin="normal"
             variant="outlined"
