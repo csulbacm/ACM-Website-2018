@@ -1,6 +1,9 @@
 import React from 'react'
 import moment from 'moment'
 import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import Icon from '@material-ui/core/Icon';
+
 
 const styles= {
   resize: {
@@ -28,6 +31,8 @@ export default class BlogPostForm extends React.Component {
     this.setState(() => ({ body }))
   }
   onSubmit = (e) => {
+    console.log('hi');
+    
     e.preventDefault()
 
     if(!this.state.title){
@@ -87,7 +92,17 @@ export default class BlogPostForm extends React.Component {
           onChange={this.onBodyChange}
           /> */}
 
-          <input type="submit"/>
+          <Button
+            variant="contained"
+            color="inherit"
+            type="submit"
+            style={{fontSize: 1.5+'vw', backgroundColor: 'light gray', color: 'dark gray'}}
+          >
+            Post
+            <Icon>send</Icon>
+          </Button>
+          
+
         </form>
       </div>
     )

@@ -2,6 +2,8 @@ import React from 'react'
 import moment from 'moment'
 import Markdown from 'markdown-to-jsx'
 import Paper from '@material-ui/core/Paper'
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const style = {display: 'inline-block', color: 'Blue'}
 
@@ -45,11 +47,12 @@ export default class BlogPost extends React.Component {
                 Update
               </button>
 
-              <button
-                style={{margin: '5px'}}
-                onClick={this.onDelete}>
-                X
-              </button>
+              <IconButton
+                aria-label="Delete"
+                onClick={this.onDelete}
+              >
+                <DeleteIcon fontSize="small" />
+              </IconButton>
             </div>
 
             <h3 style={style}>{moment(this.props.post.date).format('MMM Do')}</h3>

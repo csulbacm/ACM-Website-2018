@@ -26,6 +26,8 @@ const BoardPage = (props) => (
       props.isAuthenticated &&
         <BlogPostForm
         onSubmit={(blogPost) => {
+          console.log('in');
+          
           props.dispatch(startAddBlogPost(blogPost))
         }}/>
     }
