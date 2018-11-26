@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import moment from 'moment'
 import Markdown from 'markdown-to-jsx'
 import Paper from '@material-ui/core/Paper'
@@ -7,7 +8,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 const style = {display: 'inline-block', color: 'Blue'}
 
-export default class BlogPost extends React.Component {
+class BlogPost extends React.Component {
     constructor(props) {
       super(props)
 
@@ -40,20 +41,23 @@ export default class BlogPost extends React.Component {
       return (
         <div style={{margin: "0 auto", width: "80%"}}>
           <Paper style={{width: "95%", margin: "20px"}}>
-            <div style={{display: 'inline-block', float: 'right', margin: '5px'}}>
-              <button
-                style={{margin: '5px'}}
-                onClick={this.onSubmit}>
-                Update
-              </button>
+            
+            {
+              this.props.isAuthenticated && <div style={{display: 'inline-block', float: 'right', margin: '5px'}}>
+                <button
+                  style={{margin: '5px'}}
+                  onClick={this.onSubmit}>
+                  Update
+                </button>
 
-              <IconButton
-                aria-label="Delete"
-                onClick={this.onDelete}
-              >
-                <DeleteIcon fontSize="small" />
-              </IconButton>
-            </div>
+                <IconButton
+                  aria-label="Delete"
+                  onClick={this.onDelete}
+                >
+                  <DeleteIcon fontSize="small" />
+                </IconButton>
+              </div>
+            }
 
             <h3 style={style}>{moment(this.props.post.date).format('MMM Do')}</h3>
             <h2
@@ -74,3 +78,9 @@ export default class BlogPost extends React.Component {
       )
     }
 }
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: !!state.auth.uid
+})
+
+export default connect(mapStateToProps)(BlogPost)
