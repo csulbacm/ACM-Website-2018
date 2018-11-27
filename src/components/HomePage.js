@@ -18,6 +18,20 @@ const particleParams = {
         value_area: 800
       }
     }
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: {
+        enable: true,
+        mode: "grab"
+      }
+    },
+    modes: {
+      grab: {
+        distance: 200
+      }
+    }
   }
 }
 

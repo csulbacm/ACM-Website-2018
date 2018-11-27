@@ -1,11 +1,14 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import moment from 'moment'
 import Markdown from 'markdown-to-jsx'
 import Paper from '@material-ui/core/Paper'
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const style = {display: 'inline-block', margin: "10px"}
 
-export default class BlogPost extends React.Component {
+class BlogPost extends React.Component {
     constructor(props) {
       super(props);
 
@@ -37,26 +40,24 @@ export default class BlogPost extends React.Component {
     render() {
       return (
         <div style={{margin: "0 auto", width: "80%"}}>
-          <Paper style={{width: "95%", margin: "20px", padding: "15px"}}>
-            <div style={{display: 'inline-block', float: 'right', margin: '5px'}}>
-              {
-                this.props.isAuthenticated &&
+          <Paper style={{width: "95%", margin: "20px"}}>
+            
+            {
+              this.props.isAuthenticated && <div style={{display: 'inline-block', float: 'right', margin: '5px'}}>
                 <button
                   style={{margin: '5px'}}
                   onClick={this.onSubmit}>
                   Update
                 </button>
-              }
 
-              {
-                this.props.isAuthenticated &&
-                <button
-                  style={{margin: '5px'}}
-                  onClick={this.onDelete}>
-                  X
-                </button>
-              }
-            </div>
+                <IconButton
+                  aria-label="Delete"
+                  onClick={this.onDelete}
+                >
+                  <DeleteIcon fontSize="small" />
+                </IconButton>
+              </div>
+            }
 
             <h2
               style={{...style, paddingLeft: '1vw'}}
@@ -79,3 +80,9 @@ export default class BlogPost extends React.Component {
       )
     }
 }
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: !!state.auth.uid
+})
+
+export default connect(mapStateToProps)(BlogPost)
