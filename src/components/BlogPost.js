@@ -3,11 +3,11 @@ import moment from 'moment'
 import Markdown from 'markdown-to-jsx'
 import Paper from '@material-ui/core/Paper'
 
-const style = {display: 'inline-block', color: 'Blue'}
+const style = {display: 'inline-block', margin: "10px"}
 
 export default class BlogPost extends React.Component {
     constructor(props) {
-      super(props)
+      super(props);
 
       this.state = {
         title: this.props.post.title,
@@ -37,22 +37,27 @@ export default class BlogPost extends React.Component {
     render() {
       return (
         <div style={{margin: "0 auto", width: "80%"}}>
-          <Paper style={{width: "95%", margin: "20px"}}>
+          <Paper style={{width: "95%", margin: "20px", padding: "15px"}}>
             <div style={{display: 'inline-block', float: 'right', margin: '5px'}}>
-              <button
-                style={{margin: '5px'}}
-                onClick={this.onSubmit}>
-                Update
-              </button>
+              {
+                this.props.isAuthenticated &&
+                <button
+                  style={{margin: '5px'}}
+                  onClick={this.onSubmit}>
+                  Update
+                </button>
+              }
 
-              <button
-                style={{margin: '5px'}}
-                onClick={this.onDelete}>
-                X
-              </button>
+              {
+                this.props.isAuthenticated &&
+                <button
+                  style={{margin: '5px'}}
+                  onClick={this.onDelete}>
+                  X
+                </button>
+              }
             </div>
 
-            <h3 style={style}>{moment(this.props.post.date).format('MMM Do')}</h3>
             <h2
               style={{...style, paddingLeft: '1vw'}}
               contentEditable={this.props.isAuthenticated}
@@ -60,11 +65,14 @@ export default class BlogPost extends React.Component {
               onInput={this.onTitleInput}
             >{this.state.title}</h2>
 
+            <h3 style={{...style, fontSize: "15px"}}>{moment(this.props.post.date).format('MMM Do YYYY')}</h3>
+            
             <br/>
             <Markdown
               contentEditable={this.props.isAuthenticated}
               suppressContentEditableWarning="true"
               onInput={this.onBodyInput}
+              style={{margin: "20px"}}
             >{this.state.body}</Markdown>
           </Paper>
         </div>
