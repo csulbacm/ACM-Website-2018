@@ -23,7 +23,7 @@ const BoardPage = (props) => (
     <Particles params={particleParams} style={{position: "absolute", display: "inline-block"}} />
     <div style={{height: "30px"}}></div>
 
-    <h1 style={{textAlign: "center", fontSize: "90px"}}>Club Updates</h1>
+    <h1 style={{textAlign: "center", fontSize: "90px", color: "white"}}>Club Updates</h1>
     <p>{props.isAuthenticated}</p>
     {
       props.isAuthenticated &&

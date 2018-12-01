@@ -5,6 +5,8 @@ import Markdown from 'markdown-to-jsx'
 import Paper from '@material-ui/core/Paper'
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
+import UpdateBlog from './UpdateBlog.js';
+import '../styles/css/Tables.css';
 
 const style = {display: 'inline-block', margin: "10px"}
 
@@ -16,6 +18,16 @@ class BlogPost extends React.Component {
         title: this.props.post.title,
         body: this.props.post.body
       }
+
+      this.handler = this.handler.bind(this)
+    }
+
+    handler(e) {
+      e.preventDefault()
+      this.setState({
+        title: e.title,
+        body: e.body
+      })
     }
 
     onTitleInput = (e) => {
@@ -27,12 +39,14 @@ class BlogPost extends React.Component {
       this.setState(() => ({ body }))
     }
 
-    onSubmit = (e) => {
+    onSubmit = (title, body) => {
       this.props.onSubmit({
         id: this.props.post.id,
-        ...this.state
+        title,
+        body
       })
     }
+
     onDelete = (e) => {
       this.props.onDelete(this.props.post.id)
     }
@@ -40,41 +54,34 @@ class BlogPost extends React.Component {
     render() {
       return (
         <div style={{margin: "0 auto", width: "80%"}}>
-          <Paper style={{width: "95%", margin: "20px"}}>
+          <Paper style={{width: "95%", margin: "20px", paddingBottom: "25px"}}>
             
             {
               this.props.isAuthenticated && <div style={{display: 'inline-block', float: 'right', margin: '5px'}}>
-                <button
-                  style={{margin: '5px'}}
-                  onClick={this.onSubmit}>
-                  Update
-                </button>
-
+                <UpdateBlog
+                  title = {this.state.title}
+                  body = {this.state.body}
+                  id = {this.props.post.id}
+                  onSubmit={this.onSubmit}
+                  handler = {this.handler}
+                />
                 <IconButton
-                  aria-label="Delete"
-                  onClick={this.onDelete}
-                >
-                  <DeleteIcon fontSize="small" />
+                aria-label="Delete"
+                onClick={this.onDelete}>
+                  <DeleteIcon fontSize="small"/>
                 </IconButton>
               </div>
             }
-
-            <h2
-              style={{...style, paddingLeft: '1vw'}}
-              contentEditable={this.props.isAuthenticated}
-              suppressContentEditableWarning="true"
-              onInput={this.onTitleInput}
-            >{this.state.title}</h2>
-
-            <h3 style={{...style, fontSize: "15px"}}>{moment(this.props.post.date).format('MMM Do YYYY')}</h3>
+            <h3 style={{position: "relative", top: "10px", left: "10px", fontSize: "14px"}}>{moment(this.props.post.date).format('MMM Do YYYY')}</h3>
+            <p style={{textAlign: "center", fontSize: "65px"}}>{this.state.title}</p>
             
             <br/>
-            <Markdown
-              contentEditable={this.props.isAuthenticated}
-              suppressContentEditableWarning="true"
-              onInput={this.onBodyInput}
-              style={{margin: "20px"}}
-            >{this.state.body}</Markdown>
+            <div style={{width: "75%", margin: "0 auto"}}>
+              <Markdown
+                onInput={this.onBodyInput}
+                style={{margin: "20px"}}
+              >{this.state.body}</Markdown>
+            </div>
           </Paper>
         </div>
       )
