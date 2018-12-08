@@ -16,7 +16,11 @@ class BlogPost extends React.Component {
 
       this.state = {
         title: this.props.post.title,
-        body: this.props.post.body
+        body: this.props.post.body,
+        edit: false,
+        editButtonText: 'Edit',
+        hasChanges: false,
+        edittingStyles: {}
       }
 
       this.handler = this.handler.bind(this)
@@ -30,13 +34,29 @@ class BlogPost extends React.Component {
       })
     }
 
+    checkForChanges = () => {
+      return this.state.title !== this.props.post.title || this.state.body !== this.props.post.body
+    }
     onTitleInput = (e) => {
       const title = e.target.innerHTML
       this.setState(() => ({ title }))
+
+      
+      if(title !== this.props.post.title) {
+        this.setState({ hasChanges: true })
+      }else {
+        this.setState({ hasChanges: false })
+      }
     }
     onBodyInput = (e) => {
       const body = e.target.innerHTML
       this.setState(() => ({ body }))
+
+      if(body !== this.props.post.body) {
+        this.setState({ hasChanges: true })
+      }else {
+        this.setState({ hasChanges: false })
+      }
     }
 
     onSubmit = (title, body) => {
@@ -44,7 +64,42 @@ class BlogPost extends React.Component {
         id: this.props.post.id,
         title,
         body
+    beginEdit = (e) => {
+      if(this.state.edit){
+        return this.endEdit()
+      }
+
+      this.setState({
+        edit: true,
+        editButtonText: 'Cancel'
       })
+
+      this.setState({
+        edittingStyles: {
+          border: '5px solid blue'
+        }
+      })
+    }
+    endEdit = (e) => {
+      this.setState({
+        edit: false,
+        editButtonText: 'Edit',
+        title: this.props.post.title,
+        body: this.props.post.body,
+        hasChanges: false,
+        edittingStyles: {
+          border: 'none'
+        }
+      })
+    }
+      onSubmit = (e) => {
+      this.props.onSubmit({
+        id: this.props.post.id,
+        title: this.state.title,
+        body: this.state.body
+      })
+
+      this.endEdit()
     }
 
     onDelete = (e) => {
@@ -65,6 +120,22 @@ class BlogPost extends React.Component {
                   onSubmit={this.onSubmit}
                   handler = {this.handler}
                 />
+
+                <button
+                  style={{margin: '5px'}}
+                  onClick={this.beginEdit}>
+                  {this.state.editButtonText}
+                </button>
+
+                {
+                  this.state.hasChanges &&
+                  <button
+                    style={{margin: '5px'}}
+                    onClick={this.onSubmit}>
+                    Update
+                  </button>
+                }
+
                 <IconButton
                 aria-label="Delete"
                 onClick={this.onDelete}>
@@ -82,6 +153,32 @@ class BlogPost extends React.Component {
                 style={{margin: "20px"}}
               >{this.state.body}</Markdown>
             </div>
+
+            <h3 style={style}>{moment(this.props.post.date).format('MMM Do')}</h3>
+            <h2
+              style={{...style, ...this.state.edittingStyles, paddingLeft: '1vw'}}
+              contentEditable={this.props.isAuthenticated}
+              suppressContentEditableWarning="true"
+              onInput={this.onTitleInput}
+            >{this.props.post.title}</h2>
+
+            <br/>
+
+            {
+              !this.state.edit && <Markdown>{this.props.post.body}</Markdown>
+            }
+
+            {
+              this.state.edit &&
+              <p
+                style={this.state.edittingStyles}
+                contentEditable={this.props.isAuthenticated}
+                suppressContentEditableWarning="true"
+                onInput={this.onBodyInput}
+              >{this.props.post.body}</p>
+            }
+
+
           </Paper>
         </div>
       )
