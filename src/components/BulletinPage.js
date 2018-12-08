@@ -2,6 +2,8 @@ import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import Particles from 'react-particles-js';
 import OfficerItem from './OfficerItem'
+import fadeInComponent from './FadeInComponent'
+import FadeIn from './FadeIn'
 
 const particleParams = {
   particles: {
@@ -29,6 +31,7 @@ const particleParams = {
   }
 }
 const officers = [
+
   {
     name: 'Ryan Cole',
     position: 'President',
@@ -52,7 +55,7 @@ const officers = [
   {
     name: 'Kenny Do',
     position: 'Secretary',
-    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2017/master/src/img/board/2018-2019/david_taitingfong.jpg'
+    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2017/master/src//img/board/2018-2019/matt_chu.jpg'
   },
   {
     name: 'Matthew Nguyen',
@@ -71,17 +74,25 @@ const officers = [
 const BulletinPage = () => (
     <div id="height-wrapper" style={{background: "linear-gradient(to bottom, #2196f3, #00a5f7, #00b4f8, #00c1f7, #30cef4)", padding: "10px"}}>
 
-      <Grid
+
+      <FadeIn className='row' fadeCount={6}>
+      {
+        officers.map(officer => {
+          return (
+            <div className='col-xs-4' key={officer.position}>
+              <OfficerItem officer={officer}/>
+            </div>
+          )
+        })
+      }
+      </FadeIn>
+
+      {/* <Grid>
         container
         direction="row"
         justify="space-evenly"
         alignItems="center"
       >
-        {
-          officers.map(officer => 
-            <OfficerItem key={officer.position} officer={officer}/>
-          )
-        }
         <Grid item xs={4}>
           <div style={{backgroundColor: "#3e4042", height: "400px", width: "200px", opacity: "0.5"}}>
             <div style={{backgroundColor: "white", height: "50px", width: "200px", opacity: "0.5", position: "relative", bottom: "0px"}}>
@@ -124,7 +135,7 @@ const BulletinPage = () => (
             </div>
           </div>
         </Grid>
-      </Grid>
+      </Grid> */}
     </div>
 )
 

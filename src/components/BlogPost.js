@@ -5,12 +5,14 @@ import Markdown from 'markdown-to-jsx'
 import Paper from '@material-ui/core/Paper'
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
+import UpdateBlog from './UpdateBlog.js';
+import '../styles/css/Tables.css';
 
-const style = {display: 'inline-block', color: 'Blue'}
+const style = {display: 'inline-block', margin: "10px"}
 
 class BlogPost extends React.Component {
     constructor(props) {
-      super(props)
+      super(props);
 
       this.state = {
         title: this.props.post.title,
@@ -20,6 +22,16 @@ class BlogPost extends React.Component {
         hasChanges: false,
         edittingStyles: {}
       }
+
+      this.handler = this.handler.bind(this)
+    }
+
+    handler(e) {
+      e.preventDefault()
+      this.setState({
+        title: e.title,
+        body: e.body
+      })
     }
 
     checkForChanges = () => {
@@ -47,6 +59,11 @@ class BlogPost extends React.Component {
       }
     }
 
+    onSubmit = (title, body) => {
+      this.props.onSubmit({
+        id: this.props.post.id,
+        title,
+        body
     beginEdit = (e) => {
       if(this.state.edit){
         return this.endEdit()
@@ -84,6 +101,7 @@ class BlogPost extends React.Component {
 
       this.endEdit()
     }
+
     onDelete = (e) => {
       this.props.onDelete(this.props.post.id)
     }
@@ -91,10 +109,17 @@ class BlogPost extends React.Component {
     render() {
       return (
         <div style={{margin: "0 auto", width: "80%"}}>
-          <Paper style={{width: "95%", margin: "20px"}}>
+          <Paper style={{width: "95%", margin: "20px", paddingBottom: "25px"}}>
             
             {
               this.props.isAuthenticated && <div style={{display: 'inline-block', float: 'right', margin: '5px'}}>
+                <UpdateBlog
+                  title = {this.state.title}
+                  body = {this.state.body}
+                  id = {this.props.post.id}
+                  onSubmit={this.onSubmit}
+                  handler = {this.handler}
+                />
 
                 <button
                   style={{margin: '5px'}}
@@ -112,13 +137,22 @@ class BlogPost extends React.Component {
                 }
 
                 <IconButton
-                  aria-label="Delete"
-                  onClick={this.onDelete}
-                >
-                  <DeleteIcon fontSize="small" />
+                aria-label="Delete"
+                onClick={this.onDelete}>
+                  <DeleteIcon fontSize="small"/>
                 </IconButton>
               </div>
             }
+            <h3 style={{position: "relative", top: "10px", left: "10px", fontSize: "14px"}}>{moment(this.props.post.date).format('MMM Do YYYY')}</h3>
+            <p style={{textAlign: "center", fontSize: "65px"}}>{this.state.title}</p>
+            
+            <br/>
+            <div style={{width: "75%", margin: "0 auto"}}>
+              <Markdown
+                onInput={this.onBodyInput}
+                style={{margin: "20px"}}
+              >{this.state.body}</Markdown>
+            </div>
 
             <h3 style={style}>{moment(this.props.post.date).format('MMM Do')}</h3>
             <h2

@@ -26,7 +26,18 @@ const muiTheme = createMuiTheme({
     secondary: {
       main: '#ffffff'
     }
-  }
+  },
+  shape: {
+    borderRadius: 8,
+  },
+  typography: {
+    useNextVariants: true,
+    h5: {
+      fontWeight: 500,
+      fontSize: 26,
+      letterSpacing: 0.5,
+    },
+  },
 });
 
 const AppRouter = (props) => {
