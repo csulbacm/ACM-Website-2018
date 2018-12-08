@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import BlogPost from './BlogPost'
 import BlogPostForm from './BlogPostForm'
+import FadeIn from './FadeIn'
 import moment from 'moment'
 import Particles from 'react-particles-js';
 import { startAddBlogPost, startUpdateBlogPost, startRemoveBlogPost } from '../actions/blogPosts'
@@ -36,19 +37,23 @@ const BoardPage = (props) => (
     }
     {
       props.blogPosts &&
-        props.blogPosts.map((post) =>
-          <BlogPost
-            key={post.id}
-            post={post}
-            isAuthenticated={props.isAuthenticated}
-            onSubmit={({ id, ...updates } = {}) => {
-              props.dispatch(startUpdateBlogPost(id, updates))
-            }}
-            onDelete={(id) => {
-              props.dispatch(startRemoveBlogPost(id))
-            }}
-          />
-        )
+        <FadeIn fadeCount={3}>
+        {
+          props.blogPosts.map((post) =>
+            <BlogPost
+              key={post.id}
+              post={post}
+              isAuthenticated={props.isAuthenticated}
+              onSubmit={({ id, ...updates } = {}) => {
+                props.dispatch(startUpdateBlogPost(id, updates))
+              }}
+              onDelete={(id) => {
+                props.dispatch(startRemoveBlogPost(id))
+              }}
+            />
+          )
+        }
+        </FadeIn>
       }
     </div>
 )
