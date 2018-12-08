@@ -18,14 +18,13 @@ const particleParams = {
     }
   }
 }
-{/* <Particles params={particleParams} style={{position: "absolute", display: "inline-block"}} /> */}
+
 const BoardPage = (props) => (
   <div style={{background: "linear-gradient(to bottom, #2196f3, #00a5f7, #00b4f8, #00c1f7, #30cef4)", height: "110%"}}>
     <Particles params={particleParams} style={{position: "absolute", display: "inline-block"}} />
     <div style={{height: "30px"}}></div>
 
     <h1 style={{textAlign: "center", fontSize: "90px", color: "white"}}>Club Updates</h1>
-  <div style={{background: "linear-gradient(to bottom, #2196f3, #00a5f7, #00b4f8, #00c1f7, #30cef4)", height: "100vh"}}>
     <p>{props.isAuthenticated}</p>
     {
       props.isAuthenticated &&
