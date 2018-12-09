@@ -8,7 +8,8 @@ export default class Grid extends React.Component {
     constructor(props) {
         super(props)
 
-        const styles = Array(this.props.fadeCount).fill({ opacity: 0 })
+        const groupCount = Math.min(Math.ceil(this.props.children.length / this.props.groupSize), this.props.maxGroups)
+        const styles = Array(groupCount).fill({ opacity: 0 })
 
         this.state = {
             styles
@@ -17,6 +18,7 @@ export default class Grid extends React.Component {
 
     componentDidMount() {
         this.state.styles.forEach((style, i) => {
+
             setTimeout(() => {
                 this.setState(prevState => {
                     const prevStyles = prevState.styles
@@ -37,7 +39,9 @@ export default class Grid extends React.Component {
         <div>
         {
             this.props.children.map((child, i) => {
-                return <div key={child.key} style={{...this.state.styles[i], ...staticStyles}}>{child}</div>
+                const group = Math.min(Math.floor(i / this.props.groupSize), this.props.maxGroups)
+
+                return <div key={child.key} style={{...this.state.styles[group], ...staticStyles}}>{child}</div>
             })
         }
         </div>
