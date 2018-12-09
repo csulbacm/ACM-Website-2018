@@ -30,14 +30,13 @@ const BoardPage = (props) => (
       props.isAuthenticated &&
         <BlogPostForm
         onSubmit={(blogPost) => {
-          console.log('in');
           
           props.dispatch(startAddBlogPost(blogPost))
         }}/>
     }
     {
       props.blogPosts &&
-        <FadeIn fadeCount={3}>
+        <FadeIn groupSize={1} maxGroups={3}>
         {
           props.blogPosts.map((post) =>
             <BlogPost

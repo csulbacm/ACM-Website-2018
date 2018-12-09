@@ -75,7 +75,7 @@ const BulletinPage = () => (
     <div id="height-wrapper" style={{background: "linear-gradient(to bottom, #2196f3, #00a5f7, #00b4f8, #00c1f7, #30cef4)", padding: "10px"}}>
 
 
-      <FadeIn className='row' fadeCount={6}>
+      <FadeIn className='row' groupSize={3} maxGroups={2}>
       {
         officers.map(officer => {
           return (
