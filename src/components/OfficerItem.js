@@ -1,4 +1,6 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -62,6 +64,7 @@ export default class OfficerItem extends React.Component {
     
     render() {
         return (
+        <div>
             <Card style={{...this.props.style, ...styles.card}} ref={this.container}>
                 <CardActionArea ref={this.content}>
                     <CardMedia
@@ -88,6 +91,15 @@ export default class OfficerItem extends React.Component {
                     </CardContent>
                 </CardActionArea>
             </Card>
+            <div style={{textAlign: "center", margin: "10px"}}>
+                <a style={{marginRight:"40px"}} href={this.props.officer.github}>
+                    <FontAwesomeIcon icon={faGithub} size="3x"/>
+                </a>
+                <a style={{marginRight:"40px"}} href={this.props.officer.linkedIn}>
+                    <FontAwesomeIcon icon={faLinkedin} size="3x"/>
+                </a>
+            </div>
+        </div>
         )
     }
 }

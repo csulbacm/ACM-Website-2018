@@ -35,9 +35,12 @@ const setScheduleCards = (scheduleCards) => ({
 export const startSetScheduleCards = () => {
   return (dispatch) => {
     const currentDate = moment().get('year') + "-" + (moment().get('month')+1) + "-" + moment().get('date') + "T00%3A00%3A00-00%3A00";
+    var twoWeeks = moment().add(14, 'days');
+    const max = twoWeeks.get('year') + "-" + (twoWeeks.get('month')+1) + "-" + twoWeeks.get('date') + "T00%3A00%3A00-00%3A00";
     const calendarID = "csulb.acm.org_74d29bp7hmo68gfsnc47cl420o@group.calendar.google.com";
+    console.log('https://www.googleapis.com/calendar/v3/calendars/'+calendarID+'/events?timeMax='+max+'&timeMin='+currentDate+'&key=AIzaSyAHAUCcBOMbIhUmJsIr0ET4bxxJEaaa2cQ');
 
-    return axios.get('https://www.googleapis.com/calendar/v3/calendars/'+calendarID+'/events?timeMin='+currentDate+'&key=AIzaSyAHAUCcBOMbIhUmJsIr0ET4bxxJEaaa2cQ')
+    return axios.get('https://www.googleapis.com/calendar/v3/calendars/'+calendarID+'/events?timeMax='+max+'&timeMin='+currentDate+'&key=AIzaSyAHAUCcBOMbIhUmJsIr0ET4bxxJEaaa2cQ')
       .then((res) => {
         const scheduleCards = [];
 
