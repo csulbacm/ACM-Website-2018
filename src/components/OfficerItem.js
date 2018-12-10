@@ -13,18 +13,6 @@ const containerStyle ={
     // textAlign: "center",
     position: "relative"
 }
-let hiddenHeaderStyle = {
-    position: "absolute",
-    backgroundColor: "gray",
-    margin: 0,
-    padding: 0,
-    width: "100%",
-    bottom: 0,
-    left: 0,
-    right: 0,
-    overflow: "hidden",
-    transition: "0.5s ease-in-out"
-}
 
 const styles = {
     card: {
@@ -54,13 +42,6 @@ export default class OfficerItem extends React.Component {
     componentDidMount() {
         // console.log(this.container);
     }
-
-    onMouseEnter = () => {
-        this.setState({ ...this.state, height: 100 })
-    }
-    onMouseLeave = () => {
-        this.setState({ ...this.state, height: 0 })
-    }
     
     render() {
         return (
@@ -72,8 +53,8 @@ export default class OfficerItem extends React.Component {
                     image={this.props.officer.image}
                     />
                     <CardContent
-                    onMouseEnter={this.onMouseEnter}
-                    onMouseLeave={this.onMouseLeave}
+                    // onMouseEnter={this.onMouseEnter}
+                    // onMouseLeave={this.onMouseLeave}
                     style={containerStyle}
                     >
                         <Typography variant="h6" component="h2">
@@ -82,12 +63,6 @@ export default class OfficerItem extends React.Component {
                         <Typography gutterBottom variant="h5" component="h2">
                             {this.props.officer.name} 
                         </Typography>
-
-                        <a href="#">
-                            <h1 style={{...hiddenHeaderStyle, height:`${this.state.height}%`}}>
-                                Check out my GitHub / LinkedIn
-                            </h1> 
-                        </a>
                     </CardContent>
                 </CardActionArea>
             </Card>
