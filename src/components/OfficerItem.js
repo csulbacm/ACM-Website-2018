@@ -23,7 +23,7 @@ const styles = {
     },
     media: {
         backgroundSize: 'cover',
-        height: '30vh',
+        height: '35vh',
     },
   };
 

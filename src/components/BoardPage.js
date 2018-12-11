@@ -38,7 +38,7 @@ const BoardPage = (props) => (
       props.blogPosts &&
         <FadeIn groupSize={1} maxGroups={3}>
         {
-          props.blogPosts.map((post) =>
+          props.blogPosts.slice(0).reverse().map((post) =>
             <BlogPost
               key={post.id}
               post={post}

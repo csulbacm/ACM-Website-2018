@@ -42,7 +42,7 @@ const officers = [
   {
     name: 'Matt Chu',
     position: 'Vice President',
-    image: '../officerImages/matthewChu.jpg',
+    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2018/master/src/officerImages/matthewChu.jpg',
     github: 'https://github.com/mpchu',
     linkedIn: 'https://www.linkedin.com/in/matthewpchu/'
   },
@@ -56,28 +56,28 @@ const officers = [
   {
     name: 'David Taitingfong',
     position: 'Treasurer',
-    image: '../officerImages/davidTaitingfong.jpg',
+    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2018/master/src/officerImages/davidTaitingfong.jpg',
     github: 'github.com/DJTai',
     linkedIn: 'linkedin.com/in/DavidTaitingfong'
   },
   {
     name: 'Kenny Do',
     position: 'Secretary',
-    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2017/master/src//img/board/2018-2019/matt_chu.jpg',
+    img: '',
     github: '#',
     linkedIn: '#'
   },
   {
     name: 'Matthew Nguyen',
     position: 'Industry Chair',
-    image: '../officerImages/matthewNguyen.jpg',
+    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2018/master/src/officerImages/matthewNguyen.jpg',
     github: 'https://github.com/matthewvn25',
     linkedIn: 'https://www.linkedin.com/in/matthew-nguyen-32b18481/'
   },
   {
     name: 'Elizabeth Him',
     position: 'Event Coordinator',
-    img: '../officerImages/elizabethHim.jpg',
+    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2018/master/src/officerImages/elizabethHim.jpg',
     github: 'github.com/elizabethhim',
     linkedIn: 'https://www.linkedin.com/in/elizabeth-him/'
   }
