@@ -50,8 +50,8 @@ const officers = [
     name: 'Alfredo Vargas',
     position: 'AESB Rep',
     image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2017/master/src//img/board/2018-2019/alfredo_vargas.jpg',
-    github: '#',
-    linkedIn: '#'
+    github: 'https://github.com/alfredovargasjr',
+    linkedIn: 'https://www.linkedin.com/in/alfredovargasjr/'
   },
   {
     name: 'David Taitingfong',
@@ -64,8 +64,8 @@ const officers = [
     name: 'Kenny Do',
     position: 'Secretary',
     img: '',
-    github: '#',
-    linkedIn: '#'
+    github: 'https://github.com/mrdokenny',
+    linkedIn: 'https://www.linkedin.com/in/dokenny/'
   },
   {
     name: 'Matthew Nguyen',
@@ -80,6 +80,19 @@ const officers = [
     image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2018/master/src/officerImages/elizabethHim.jpg',
     github: 'github.com/elizabethhim',
     linkedIn: 'https://www.linkedin.com/in/elizabeth-him/'
+  },
+  {
+    name: 'Tiffany Lam',
+    position: 'Membership Chair',
+    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2018/master/src/officerImages/elizabethHim.jpg',
+    github: 'https://github.com/tiffany-lam',
+    linkedIn: 'https://www.linkedin.com/in/tiffany-c-lam/'
+  },
+  {
+    name: 'Evan Key',
+    position: 'BeachHacks Chair',
+    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2018/master/src/officerImages/elizabethHim.jpg',
+    github: 'https://github.com/EvanKey'
   }
 ]
 
