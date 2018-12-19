@@ -51,7 +51,7 @@ const AppRouter = (props) => {
           <div className={classes.toolbar} />
           <Switch>
             <Route path="/" component={HomePage} exact={true}/>
-            <Route path="/bulletin" component={BulletinPage} exact={true}/>
+            <Route path="/officers" component={BulletinPage} exact={true}/>
             <Route path="/board" component={BoardPage} exact={true}/>
             <Route path="/backdoor" component={Backdoor}/>
             <Route component={NotFoundPage}/>

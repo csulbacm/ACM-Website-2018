@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import ScheduleDisplay from './ScheduleDisplay.js'
-import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
-import { Typography } from '@material-ui/core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInstagram, faDiscord } from '@fortawesome/free-brands-svg-icons'
 import '../styles/css/HomePage.css'
 import Particles from 'react-particles-js';
 
@@ -77,6 +77,17 @@ class HomePage extends Component {
                 Beach chapter, we believe in the principles of Gladwell's book, Outliers: The Story of Success. We commit our time and energy 
                 to producing, engaging in, and ultimately mastering the technologies of the computing age.
                 </p>
+
+
+                <p style={{textAlign: 'center', marginTop: '10vh', fontSize: '30px'}}>
+                Check out our Instagram and Discord 
+                </p>
+                <a style={{marginRight:"20px"}} href="https://www.instagram.com/csulbacm/?hl=en">
+                    <FontAwesomeIcon icon={faInstagram} size="3x"/>
+                </a>
+                <a style={{marginRight:"20px"}} href="https://discord.gg/E276dCr">
+                    <FontAwesomeIcon icon={faDiscord} size="3x"/>
+                </a>
               </div>
             </div>
           </Parallax.Layer>

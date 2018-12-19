@@ -19,8 +19,9 @@ class MyCarousel extends React.Component {
   // }
 
   images = [
-    'https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350',
-    'https://images.unsplash.com/photo-1535498730771-e735b998cd64?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=623ed05afcc5a3fa1e444ffca95854dc&w=1000&q=80'
+    'https://i.pinimg.com/originals/0d/10/c5/0d10c50facbcf34473c30b146d000d6c.jpg',
+    'https://raw.githubusercontent.com/csulbacm/ACM-Website-2018/master/public/images/GoogleMeeting.jpg',
+    'https://raw.githubusercontent.com/csulbacm/ACM-Website-2018/master/public/images/GBM.jpg'
   ]
 
   // onAfterChange = (slideIndex) => {

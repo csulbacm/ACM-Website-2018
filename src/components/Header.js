@@ -16,8 +16,8 @@ const Header = (props) => (
     <AppBar position="fixed" style={{overflow:'hidden'}}>
       <Toolbar>
       <NavLink to="/" style={navLinkStyle}><Button color="secondary" style={buttonStyle}>Home</Button></NavLink>
-      <NavLink to="/bulletin" style={navLinkStyle}><Button color="secondary" style={buttonStyle}>Bulletin</Button></NavLink>
-      <NavLink to="/board" style={lastNavLink}><Button color="secondary" style={buttonStyle}>Board</Button></NavLink>
+      <NavLink to="/officers" style={navLinkStyle}><Button color="secondary" style={buttonStyle}>Officers</Button></NavLink>
+      <NavLink to="/board" style={lastNavLink}><Button color="secondary" style={buttonStyle}>Updates</Button></NavLink>
       {
         props.isAuthenticated &&
         <Button

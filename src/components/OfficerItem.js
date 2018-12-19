@@ -67,10 +67,10 @@ export default class OfficerItem extends React.Component {
                 </CardActionArea>
             </Card>
             <div style={{textAlign: "center", margin: "10px"}}>
-                {this.props.officer.github && <a style={{marginRight:"40px"}} href={this.props.officer.github}>
+                {this.props.officer.github && <a style={{marginRight:"20px"}} href={this.props.officer.github}>
                     <FontAwesomeIcon icon={faGithub} size="3x"/>
                 </a>}
-                {this.props.officer.linkedIn && <a style={{marginRight:"40px"}} href={this.props.officer.linkedIn}>
+                {this.props.officer.linkedIn && <a style={{marginRight:"20px"}} href={this.props.officer.linkedIn}>
                     <FontAwesomeIcon icon={faLinkedin} size="3x"/>
                 </a>}
             </div>

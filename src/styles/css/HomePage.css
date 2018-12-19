@@ -20,7 +20,6 @@
 
 .circleButton:focus {
     outline: 0;
-    opacity: 1;
 }
 
 .center {

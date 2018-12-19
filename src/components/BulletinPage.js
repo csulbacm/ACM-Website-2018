@@ -49,9 +49,16 @@ const officers = [
   {
     name: 'Alfredo Vargas',
     position: 'AESB Rep',
-    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2017/master/src//img/board/2018-2019/alfredo_vargas.jpg',
+    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2018/master/src/officerImages/AlfredoVargas.png',
     github: 'https://github.com/alfredovargasjr',
     linkedIn: 'https://www.linkedin.com/in/alfredovargasjr/'
+  },
+  {
+    name: 'Elizabeth Him',
+    position: 'Event Coordinator',
+    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2018/master/src/officerImages/elizabethHim.jpg',
+    github: 'github.com/elizabethhim',
+    linkedIn: 'https://www.linkedin.com/in/elizabeth-him/'
   },
   {
     name: 'David Taitingfong',
@@ -63,7 +70,7 @@ const officers = [
   {
     name: 'Kenny Do',
     position: 'Secretary',
-    img: '',
+    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2018/master/src/officerImages/KennyDo.png',
     github: 'https://github.com/mrdokenny',
     linkedIn: 'https://www.linkedin.com/in/dokenny/'
   },
@@ -75,23 +82,16 @@ const officers = [
     linkedIn: 'https://www.linkedin.com/in/matthew-nguyen-32b18481/'
   },
   {
-    name: 'Elizabeth Him',
-    position: 'Event Coordinator',
-    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2018/master/src/officerImages/elizabethHim.jpg',
-    github: 'github.com/elizabethhim',
-    linkedIn: 'https://www.linkedin.com/in/elizabeth-him/'
-  },
-  {
     name: 'Tiffany Lam',
     position: 'Membership Chair',
-    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2018/master/src/officerImages/elizabethHim.jpg',
+    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2018/master/src/officerImages/TiffanyLam.png',
     github: 'https://github.com/tiffany-lam',
     linkedIn: 'https://www.linkedin.com/in/tiffany-c-lam/'
   },
   {
     name: 'Evan Key',
     position: 'BeachHacks Chair',
-    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2018/master/src/officerImages/elizabethHim.jpg',
+    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2018/master/src/officerImages/EvanKey.png',
     github: 'https://github.com/EvanKey'
   }
 ]
@@ -106,7 +106,7 @@ const BulletinPage = () => (
       {
         officers.map(officer => {
           return (
-            <div className='col-xs-4' key={officer.position}>
+            <div className='col-xs-12 col-sm-6 col-md-4' key={officer.position}>
               <OfficerItem officer={officer}/>
             </div>
           )
