@@ -7,8 +7,8 @@ import blue from '@material-ui/core/colors/blue';
 
 import Header from '../components/Header.js'
 import HomePage from '../components/HomePage.js'
-import BulletinPage from '../components/BulletinPage.js'
-import BoardPage from '../components/BoardPage.js'
+import OfficersPage from '../components/OfficersPage.js'
+import UpdatesPage from '../components/UpdatesPage.js'
 import Backdoor from '../components/Backdoor.js'
 import NotFoundPage from '../components/NotFoundPage.js'
 
@@ -51,8 +51,8 @@ const AppRouter = (props) => {
           <div className={classes.toolbar} />
           <Switch>
             <Route path="/" component={HomePage} exact={true}/>
-            <Route path="/officers" component={BulletinPage} exact={true}/>
-            <Route path="/board" component={BoardPage} exact={true}/>
+            <Route path="/officers" component={OfficersPage} exact={true}/>
+            <Route path="/updates" component={UpdatesPage} exact={true}/>
             <Route path="/backdoor" component={Backdoor}/>
             <Route component={NotFoundPage}/>
           </Switch>

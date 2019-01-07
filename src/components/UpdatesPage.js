@@ -19,7 +19,7 @@ const particleParams = {
   }
 }
 
-const BoardPage = (props) => (
+const UpdatesPage = (props) => (
   <div style={{background: "linear-gradient(to bottom, #2196f3, #00a5f7, #00b4f8, #00c1f7, #30cef4)", height: "110%"}}>
     <Particles params={particleParams} style={{position: "absolute", display: "inline-block"}} />
     <div style={{height: "30px"}}></div>
@@ -62,4 +62,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: !!state.auth.uid
 })
 
-export default connect(mapStateToProps)(BoardPage)
+export default connect(mapStateToProps)(UpdatesPage)

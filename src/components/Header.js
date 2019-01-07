@@ -17,7 +17,7 @@ const Header = (props) => (
       <Toolbar>
       <NavLink to="/" style={navLinkStyle}><Button color="secondary" style={buttonStyle}>Home</Button></NavLink>
       <NavLink to="/officers" style={navLinkStyle}><Button color="secondary" style={buttonStyle}>Officers</Button></NavLink>
-      <NavLink to="/board" style={lastNavLink}><Button color="secondary" style={buttonStyle}>Updates</Button></NavLink>
+      <NavLink to="/updates" style={lastNavLink}><Button color="secondary" style={buttonStyle}>Updates</Button></NavLink>
       {
         props.isAuthenticated &&
         <Button
