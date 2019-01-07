@@ -27,7 +27,6 @@ export default class ScheduleCardForm extends React.Component {
   }
   onColorChange = (e) => {
     const color = e.target.value
-    console.log(color);
     this.setState(() => ({ color }))
   }
 
@@ -48,8 +47,6 @@ export default class ScheduleCardForm extends React.Component {
         color: this.state.color
       }
       this.props.onSubmit(val)
-
-      console.log('Schedule card submitted')
     }
   }
 

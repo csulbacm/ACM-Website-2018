@@ -39,10 +39,6 @@ export default class OfficerItem extends React.Component {
         this.content = React.createRef();
     }
 
-    componentDidMount() {
-        // console.log(this.container);
-    }
-    
     render() {
         return (
         <div>

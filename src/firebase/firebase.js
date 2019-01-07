@@ -1,7 +1,9 @@
 // USED TO INCLUDE FIREBASE IN PROJECT
 // ONLY EXPORTS, TO BE USED IN OTHER FILES
 
-import * as firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/database'
 
 // Initialize Firebase
 const config = {
@@ -15,6 +17,7 @@ const config = {
 firebase.initializeApp(config);
 
 const database = firebase.database()
+const auth = firebase.auth();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
 
-export { firebase, googleAuthProvider, database as default }
+export { firebase, auth, googleAuthProvider, database as default }

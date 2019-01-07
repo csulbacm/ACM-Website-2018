@@ -31,7 +31,6 @@ const ScheduleDisplay = (props) => {
     }
 
 const mapStateToProps = (state) => {
-  console.log(selectScheduleCards(state));
   return {
     scheduleCards: selectScheduleCards(state)
   }

@@ -35,7 +35,7 @@ const officers = [
   {
     name: 'Ryan Cole',
     position: 'President',
-    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2017/master/src//img/board/2017-2018/ryan_cole.JPG',
+    image: 'https://raw.githubusercontent.com/csulbacm/ACM-Website-2018/master/src/officerImages/ryan_cole.JPG',
     github: '#',
     linkedIn: '#'
   },

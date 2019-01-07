@@ -9,7 +9,6 @@ const addScheduleCard = (scheduleCard) => ({
   scheduleCard
 })
 export const startAddScheduleCard = (data = {}) => {
-  console.log('in');
   return (dispatch) => {
     const {
       date,
@@ -38,13 +37,10 @@ export const startSetScheduleCards = () => {
     var twoWeeks = moment().add(14, 'days');
     const max = twoWeeks.get('year') + "-" + (twoWeeks.get('month')+1) + "-" + twoWeeks.get('date') + "T00%3A00%3A00-00%3A00";
     const calendarID = "csulb.acm.org_74d29bp7hmo68gfsnc47cl420o@group.calendar.google.com";
-    console.log('https://www.googleapis.com/calendar/v3/calendars/'+calendarID+'/events?timeMax='+max+'&timeMin='+currentDate+'&key=AIzaSyAHAUCcBOMbIhUmJsIr0ET4bxxJEaaa2cQ');
 
     return axios.get('https://www.googleapis.com/calendar/v3/calendars/'+calendarID+'/events?timeMax='+max+'&timeMin='+currentDate+'&key=AIzaSyAHAUCcBOMbIhUmJsIr0ET4bxxJEaaa2cQ')
       .then((res) => {
         const scheduleCards = [];
-
-        console.log(res.data.items);
 
         res.data.items.forEach((childSnapshot) => {
           scheduleCards.push(

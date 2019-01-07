@@ -41,8 +41,6 @@ class BlogPostForm extends React.Component {
     this.setState(() => ({ body }))
   }
   onSubmit = (e) => {
-    console.log('hi');
-    
     e.preventDefault()
 
     if(!this.state.title){
@@ -55,8 +53,6 @@ class BlogPostForm extends React.Component {
         date: moment().valueOf(),
       }
       this.props.onSubmit(val)
-
-      console.log('Blog post submitted')
     }
   }
 

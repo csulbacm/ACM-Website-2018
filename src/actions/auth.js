@@ -1,4 +1,4 @@
-import database, { firebase, googleAuthProvider } from '../firebase/firebase'
+import database, { auth, googleAuthProvider } from '../firebase/firebase'
 
 const login = (uid) => ({
   type: 'LOGIN',
@@ -7,7 +7,6 @@ const login = (uid) => ({
 
 // Used when user does not require sign in, already signed in
 export const verifyAndLogin = ({ email, uid } = {}) => {
-  console.log(email);
   return (dispatch) => {
     const dbRef = database.ref('users/emails')
 
@@ -21,7 +20,6 @@ export const verifyAndLogin = ({ email, uid } = {}) => {
         if(email === childSnapshot.val()) {
           // Verified
           loggedIn = true
-          console.log('Logged in', uid)
           dispatch(login(uid))
         }
       })
@@ -35,10 +33,8 @@ export const verifyAndLogin = ({ email, uid } = {}) => {
 // Used to open sign in interface for user
 export const startLogin = () => {
   return (dispatch) => {
-    return firebase.auth().signInWithPopup(googleAuthProvider)
+    return auth.signInWithPopup(googleAuthProvider)
       .then((res) => {
-        console.log(res)
-
         dispatch(verifyAndLogin({
           email: res.additionalUserInfo.profile.email,
           uid: res.user.uid
@@ -55,9 +51,8 @@ const logout = () => ({
 })
 export const startLogout = () => {
   return (dispatch) => {
-    return firebase.auth().signOut()
+    return auth.signOut()
       .then(() => {
-        console.log('Logged out')
         dispatch(logout())
       })
       .catch((e) => {

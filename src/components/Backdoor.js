@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { history } from '../routers/AppRouter'
 import { startLogin } from '../actions/auth'
-import { firebase } from '../firebase/firebase'
+import { auth } from '../firebase/firebase'
 
 class Backdoor extends Component {
   constructor(props) {
