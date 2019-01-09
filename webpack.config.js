@@ -3,6 +3,9 @@
 
 const path = require('path')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const CompressionPlugin = require('compression-webpack-plugin')
+const webpack = require('webpack')
+const zopfli = require('@gfx/zopfli');
 
 module.exports = {
   mode: 'production',
@@ -12,6 +15,18 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/'
   },
+  plugins: [
+    new BundleAnalyzerPlugin(),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    // new CompressionPlugin({
+    //   compressionOptions: {
+    //      numiterations: 15
+    //   },
+    //   algorithm(input, compressionOptions, callback) {
+    //     return zopfli.gzip(input, compressionOptions, callback);
+    //   }
+    // })
+  ],
   module: {
     rules: [{
       loader: 'babel-loader',
@@ -30,7 +45,6 @@ module.exports = {
       loader: 'url?limit=25000'
     }]
   },
-  plugins: [new BundleAnalyzerPlugin()],
   devtool: 'cheap-module-eval-source-map',
   devServer: {
     contentBase: path.join(__dirname, 'public'),

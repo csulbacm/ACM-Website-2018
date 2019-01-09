@@ -2,7 +2,6 @@ import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import Particles from 'react-particles-js';
 import OfficerItem from './OfficerItem'
-// import fadeInComponent from './FadeInComponent'
 import FadeIn from './FadeIn'
 
 const particleParams = {

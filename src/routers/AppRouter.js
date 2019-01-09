@@ -2,7 +2,9 @@ import React from 'react'
 import { Router, Route, Switch, Link, NavLink } from 'react-router-dom'
 import { render } from 'react-dom';
 import createHistory from 'history/createBrowserHistory'
-import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
+import withStyles from '@material-ui/core/styles/withStyles';
 import blue from '@material-ui/core/colors/blue';
 
 import Header from '../components/Header.js'

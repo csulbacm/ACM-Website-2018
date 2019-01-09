@@ -1,5 +1,5 @@
 import React from 'react'
-import { Carousel } from 'react-bootstrap'
+import Carousel from 'react-bootstrap/lib/Carousel'
 // import { connect } from 'react-redux'
 // import moment from 'moment'
 // import { startAddMainCarouselImage } from '../actions/mainCarousel'
