@@ -2,8 +2,10 @@
 // .js$, .css$ -> $ denotes file must end with js/ css
 
 const path = require('path')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
+  mode: 'production',
   entry: './src/app.js',
   output: {
     path: path.join(__dirname, 'public'),
@@ -28,6 +30,7 @@ module.exports = {
       loader: 'url?limit=25000'
     }]
   },
+  plugins: [new BundleAnalyzerPlugin()],
   devtool: 'cheap-module-eval-source-map',
   devServer: {
     contentBase: path.join(__dirname, 'public'),

@@ -1,5 +1,4 @@
 import database from '../firebase/firebase'
-import moment from 'moment'
 
 const dbRef = database.ref('data/blogPosts')
 
